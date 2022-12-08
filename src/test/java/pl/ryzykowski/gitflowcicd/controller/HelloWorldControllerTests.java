@@ -21,7 +21,7 @@ public class HelloWorldControllerTests {
     void shouldReturnHelloAndName() throws Exception {
         String name = "Ariel";
         this.mockMvc
-                .perform(get("/api/hello/{name}", name))
+                .perform(get("/api/hello").param("name", name))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hello " + name));
